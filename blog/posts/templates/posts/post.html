@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %} Post Page {% endblock title %}
+
+{% block body %}
+    <h1>{{post_dict.title}}</h1>
+    <p>{{post_dict.content}}</p>
+    <p><strong>Author:</strong> {{post_dict.author}}</p>
+    <p><strong>Date:</strong> {{post_dict.created_at}}</p>
+{% endblock body %}
