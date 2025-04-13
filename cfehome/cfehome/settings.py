@@ -9,24 +9,36 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
-import os
+from decouple import config
 from pathlib import Path
+from django.core.management.utils import get_random_secret_key
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+REPO_DIR = BASE_DIR.parent  # Assuming cfehome is in the root of the repository
+TEMPLATES_DIR = BASE_DIR / "templates"  # Adjust this path as needed
+TEMPLATES_DIR.mkdir(parents=True, exist_ok=True)  # Create the directory if it doesn't exist
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
+SECRET_KEY = config("DJANGO_SECRET_KEY", cast=str, default=get_random_secret_key())
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config("DJANGO_DEBUG",cast=bool, default=False)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "django-django.onrender.com",
+]
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://django-django.onrender.com",
+]
+
+if DEBUG:
+    ALLOWED_HOSTS = ["*"]  # Allow all hosts in debug mode
 
 # Application definition
 
@@ -54,7 +66,7 @@ ROOT_URLCONF = 'cfehome.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPLATES_DIR],  # Add the template directory here
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
