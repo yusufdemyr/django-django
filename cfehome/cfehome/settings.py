@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'commando'
 ]
 
 MIDDLEWARE = [
@@ -83,7 +84,7 @@ WSGI_APPLICATION = 'cfehome.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
-
+# DATABASE_URL=postgresql://django_postgres_4dtu_user:w6UHFobIUE0CZQ1TuHxi0kiZag13jWrg@dpg-cvubh5idbo4c739glns0-a.frankfurt-postgres.render.com/django_postgres_4dtu
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
