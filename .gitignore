@@ -10,6 +10,10 @@ __pycache__/
 cfehome\static_root
 
 .env/
+blog/
+cfehome/
+myfirstapp/
+
 # virtualenv
 venv/
 
