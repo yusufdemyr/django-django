@@ -1,0 +1,102 @@
+body {
+    background-color: #f8f9fa; /* Açık gri arka plan */
+}
+
+.container {
+    max-width: 960px; /* İçeriği biraz daraltalım */
+    border: 1px solid #dee2e6; /* Görseldeki gibi dış çerçeve */
+    padding: 20px; /* İç boşluk */
+    background-color: #ffffff; /* Beyaz iç arka plan */
+    border-radius: 8px; /* Hafif yuvarlak köşeler */
+    margin-top: 20px; /* Üstten boşluk */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Hafif gölge */
+}
+
+/* Sekme Stilleri */
+.nav-tabs {
+    border-bottom: none; /* Bootstrap'in alt çizgisini kaldır */
+}
+
+.nav-tabs .nav-link {
+    border: 1px solid #dee2e6;
+    border-bottom: none; /* Alt kenarlığı sadece aktif olmayanda kaldır */
+    border-radius: 5px 5px 0 0; /* Üst köşeleri yuvarla */
+    margin-right: 5px;
+    background-color: #e9ecef; /* Sekme arka planı */
+    color: #495057; /* Sekme yazı rengi */
+}
+
+.nav-tabs .nav-link.active {
+    background-color: #ffffff; /* Aktif sekme arka planı */
+    border-color: #dee2e6 #dee2e6 #ffffff; /* Kenarlıklar */
+    font-weight: bold;
+}
+
+.nav-tabs .btn-outline-secondary {
+    border-radius: 5px;
+    height: calc(1.5em + .75rem + 2px); /* Diğer sekmelerle aynı yükseklik */
+    line-height: 1.5;
+    padding: .375rem .75rem;
+}
+
+
+/* Metin Giriş Alanı */
+.input-text-area {
+    border-radius: 8px; /* Yuvarlak köşeler */
+    border: 1px solid #ced4da;
+    min-height: 120px; /* Minimum yükseklik */
+    resize: vertical; /* Sadece dikeyde boyutlandırma */
+}
+
+/* Öneriler Başlığı */
+.suggestions-title {
+    color: #6c757d; /* Gri renk */
+    font-size: 0.9rem; /* Biraz daha küçük font */
+    text-align: left; /* Sola hizalı (görseldeki gibi) */
+    padding-left: 15px; /* Kutularla hizalamak için */
+    display: none;
+}
+
+/* Dil Kutuları */
+.language-box {
+    border: 1px solid #ced4da;
+    border-radius: 8px; /* Yuvarlak köşeler */
+    padding: 15px;
+    min-height: 100px; /* Minimum yükseklik */
+    position: relative; /* Etiket konumlandırması için */
+    background-color: #f8f9fa; /* Kutu içi arka plan */
+}
+
+.language-label {
+    position: absolute;
+    top: -10px; /* Kutunun biraz üstüne */
+    left: 10px; /* Soldan boşluk */
+    background-color: #ffffff; /* Etiket arka planı (konteynır ile aynı) */
+    padding: 0 5px; /* Etiket içi boşluk */
+    font-size: 0.85rem;
+    color: #495057;
+}
+
+.language-content {
+    /* Dil kutularının içeriği buraya gelebilir */
+    /* Şimdilik boş */
+}
+
+/* Küçük Ekranlar İçin Ayarlamalar */
+@media (max-width: 767px) {
+    .suggestions-title {
+       text-align: center; /* Küçük ekranda ortala */
+       padding-left: 0;
+    }
+     .col-md-4.col-sm-6 {
+        flex: 0 0 50%; /* İki sütun */
+        max-width: 50%;
+    }
+}
+
+@media (max-width: 575px) {
+     .col-md-4.col-sm-6 {
+        flex: 0 0 100%; /* Tek sütun */
+        max-width: 100%;
+    }
+}
